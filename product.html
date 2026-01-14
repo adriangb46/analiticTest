@@ -17,7 +17,19 @@
         <!-- End Google Tag Manager (noscript) -->
        <p>producto</p>
        <p>este producto puede ser comprado</p>
-       <button id="comprar" onclick="alert('Este producto ha sido comprado')">comprar</button>
+       <button id="comprar">comprar</button>
+       <script>
+        document.getElementById('comprar').addEventListener('click',function(){
+            alert("objecto comprado");
+            dataLayer.push({
+                event: 'add_to_cart',
+                product_name: 'test_product',
+                product_id: '12345',
+                price: 20,
+                currency: 'EUR'
+            });
+        });
+       </script>
        <br>
        <a href="index.html"> home </a>
        <a href="catalog.html"> catalogo </a>
