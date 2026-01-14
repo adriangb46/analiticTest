@@ -37,5 +37,15 @@
                 enviar
             </button>
         </form>
+        <script>
+            document.getElementById("contact-form").addEventListener('submit',function() {
+                var tipo_Consulta = document.querySelector('select[name="type"]').value;
+                dataLayer.push({
+                    event: 'form_submit',
+                    form_name: 'contact_form',
+                    contact_type: tipo_Consulta
+                });
+            });
+        </script>
     </body>
 </html>
