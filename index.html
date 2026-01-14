@@ -1,23 +1,150 @@
 <!DOCTYPE html>
-<html>
-    
-    <head>
-        <!-- Google Tag Manager -->
-        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-N54C4ZL4');</script>
-        <!-- End Google Tag Manager -->
-    </head>
-    <body>
-        <!-- Google Tag Manager (noscript) -->
-        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N54C4ZL4"
-        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-        <!-- End Google Tag Manager (noscript) -->
-         
-        <h1>Bienvenido a la pagina de compra</h1>
-        <a href="catalog.html">catalogo</a>
-        <a href="contactForm.html">Formulario</a>
-    </body>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TechStore - Tu Tienda de Tecnología Premium</title>
+    <meta
+      name="description"
+      content="Descubre los mejores productos tecnológicos con diseño premium y la última innovación."
+    />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-N54C4ZL4");
+    </script>
+    <!-- End Google Tag Manager -->
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-N54C4ZL4"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="nav-content">
+        <div class="logo">⚡ TechStore</div>
+        <ul class="nav-links">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="catalog.html">Catálogo</a></li>
+          <li><a href="contactForm.html">Contacto</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content animate-fadeInUp">
+        <h1>Descubre la Tecnología del Futuro</h1>
+        <p>
+          Los mejores productos tech con diseño premium y la última innovación.
+          Encuentra todo lo que necesitas para potenciar tu experiencia digital.
+        </p>
+        <div
+          style="
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+          "
+        >
+          <a href="catalog.html" class="btn btn-primary btn-large"
+            >Ver Catálogo</a
+          >
+          <a href="contactForm.html" class="btn btn-secondary btn-large"
+            >Contáctanos</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section">
+      <div class="container">
+        <h2 class="text-center mb-4">¿Por Qué Elegirnos?</h2>
+        <div class="grid grid-3">
+          <div class="card card-glass animate-fadeInUp">
+            <div style="font-size: 3rem; margin-bottom: 1rem">🚀</div>
+            <h3>Envío Rápido</h3>
+            <p>
+              Recibe tus productos en 24-48 horas con seguimiento en tiempo
+              real.
+            </p>
+          </div>
+          <div
+            class="card card-glass animate-fadeInUp"
+            style="animation-delay: 0.1s"
+          >
+            <div style="font-size: 3rem; margin-bottom: 1rem">✨</div>
+            <h3>Calidad Premium</h3>
+            <p>
+              Solo trabajamos con las mejores marcas y productos de alta gama.
+            </p>
+          </div>
+          <div
+            class="card card-glass animate-fadeInUp"
+            style="animation-delay: 0.2s"
+          >
+            <div style="font-size: 3rem; margin-bottom: 1rem">💎</div>
+            <h3>Garantía Total</h3>
+            <p>
+              Todos nuestros productos incluyen garantía oficial del fabricante.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section" style="background: var(--bg-secondary)">
+      <div class="container text-center">
+        <h2 class="mb-2">¿Listo para Empezar?</h2>
+        <p class="mb-4" style="font-size: 1.25rem">
+          Explora nuestro catálogo completo de productos tecnológicos
+        </p>
+        <a href="catalog.html" class="btn btn-primary btn-large"
+          >Explorar Catálogo</a
+        >
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-links">
+          <a href="index.html">Inicio</a>
+          <a href="catalog.html">Catálogo</a>
+          <a href="contactForm.html">Contacto</a>
+        </div>
+        <p>&copy; 2026 TechStore. Todos los derechos reservados.</p>
+      </div>
+    </footer>
+  </body>
 </html>

@@ -1,38 +1,172 @@
 <!DOCTYPE html>
-<html>
-    <head>
-         <!-- Google Tag Manager -->
-            <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-N54C4ZL4');</script>
-        <!-- End Google Tag Manager -->
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Producto - TechStore</title>
+    <meta name="description" content="Detalles del producto">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-N54C4ZL4');</script>
+    <!-- End Google Tag Manager -->
+    
+    <style>
+        .product-detail-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-xl);
+            margin-top: var(--space-xl);
+        }
+        
+        .product-detail-image {
+            width: 100%;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .product-category-badge {
+            background: var(--accent-gradient);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-full);
+            font-size: 0.875rem;
+            font-weight: 600;
+            display: inline-block;
+            margin-bottom: var(--space-md);
+        }
+        
+        .product-detail-title {
+            font-size: 2.5rem;
+            margin-bottom: var(--space-md);
+        }
+        
+        .product-detail-description {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            margin-bottom: var(--space-lg);
+        }
+        
+        .feature-list {
+            list-style: none;
+            margin-bottom: var(--space-lg);
+        }
+        
+        .feature-list li {
+            padding: var(--space-sm);
+            margin-bottom: var(--space-xs);
+            background: rgba(102, 126, 234, 0.1);
+            border-left: 3px solid var(--primary);
+            border-radius: var(--radius-sm);
+        }
+        
+        .product-price-section {
+            background: var(--bg-card);
+            padding: var(--space-lg);
+            border-radius: var(--radius-lg);
+            border: 1px solid rgba(102, 126, 234, 0.2);
+        }
+        
+        .product-detail-price {
+            font-size: 3rem;
+            font-weight: 700;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: var(--space-md);
+        }
+        
+        .breadcrumb {
+            padding: var(--space-md) 0;
+            color: var(--text-muted);
+        }
+        
+        .breadcrumb a {
+            color: var(--accent);
+            margin: 0 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .product-detail-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N54C4ZL4"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">⚡ TechStore</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="catalog.html">Catálogo</a></li>
+                <li><a href="contactForm.html">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
 
-    </head>
-    <body>
-        <!-- Google Tag Manager (noscript) -->
-        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N54C4ZL4"
-        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-        <!-- End Google Tag Manager (noscript) -->
-       <p>producto</p>
-       <p>este producto puede ser comprado</p>
-       <button id="comprar">comprar</button>
-       <script>
-        document.getElementById('comprar').addEventListener('click',function(){
-            alert("objecto comprado");
-            dataLayer.push({
-                event: 'add_to_cart',
-                product_name: 'test_product',
-                product_id: '12345',
-                price: 20,
-                currency: 'EUR'
-            });
-        });
-       </script>
-       <br>
-       <a href="index.html"> home </a>
-       <a href="catalog.html"> catalogo </a>
-       <a href="https://www.youtube.com/watch?v=JOAqpdM36wI&pp=ygUJY3VybyBqYXZh">Curso de java(enlace Externo)</a>
-    </body>
+    <!-- Breadcrumb -->
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="index.html">Inicio</a> / 
+            <a href="catalog.html">Catálogo</a> / 
+            Producto
+        </div>
+    </div>
+
+    <!-- Product Detail -->
+    <section class="section">
+        <div class="container">
+            <div id="product-detail">
+                <!-- Product details will be loaded here by JavaScript -->
+                <div style="text-align: center; padding: var(--space-xl);">
+                    <p style="color: var(--text-secondary);">Cargando producto...</p>
+                </div>
+            </div>
+            
+            <!-- External Link Section -->
+            <div class="mt-4" style="text-align: center;">
+                <a href="https://www.youtube.com/watch?v=JOAqpdM36wI&pp=ygUJY3VybyBqYXZh" 
+                   class="btn btn-secondary"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    📺 Ver Tutorial: Curso de Java (Enlace Externo)
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="index.html">Inicio</a>
+                <a href="catalog.html">Catálogo</a>
+                <a href="contactForm.html">Contacto</a>
+            </div>
+            <p>&copy; 2026 TechStore. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/product.js"></script>
+</body>
 </html>

@@ -1,22 +1,109 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Gracias! - TechStore</title>
+    <meta name="description" content="Gracias por contactarnos">
     
-    <head>
-        <!-- Google Tag Manager -->
-        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-N54C4ZL4');</script>
-        <!-- End Google Tag Manager -->
-    </head>
-    <body>
-        <!-- Google Tag Manager (noscript) -->
-        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N54C4ZL4"
-        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-        <!-- End Google Tag Manager (noscript) -->
-         
-        <h1>Gracias por haberse registrado</h1>
-        <a href="index.html"> home </a>
-    </body>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-N54C4ZL4');</script>
+    <!-- End Google Tag Manager -->
+    
+    <style>
+        .thank-you-section {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .thank-you-content {
+            max-width: 600px;
+            padding: var(--space-xl);
+        }
+        
+        .success-icon {
+            font-size: 6rem;
+            margin-bottom: var(--space-lg);
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        .thank-you-actions {
+            display: flex;
+            gap: var(--space-md);
+            justify-content: center;
+            margin-top: var(--space-xl);
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N54C4ZL4"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">⚡ TechStore</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="catalog.html">Catálogo</a></li>
+                <li><a href="contactForm.html">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Thank You Section -->
+    <section class="thank-you-section">
+        <div class="thank-you-content animate-fadeInUp">
+            <div class="success-icon">✅</div>
+            <h1>¡Gracias por Contactarnos!</h1>
+            <p style="font-size: 1.25rem; color: var(--text-secondary); margin-top: var(--space-md);">
+                Hemos recibido tu mensaje correctamente. Nuestro equipo lo revisará y te responderá lo antes posible.
+            </p>
+            
+            <div class="card card-glass mt-3" style="text-align: left;">
+                <h3 style="margin-bottom: var(--space-sm);">¿Qué sigue?</h3>
+                <ul style="color: var(--text-secondary); line-height: 2;">
+                    <li>📧 Recibirás una confirmación por email</li>
+                    <li>👤 Un miembro del equipo revisará tu consulta</li>
+                    <li>💬 Te responderemos en las próximas 24-48 horas</li>
+                </ul>
+            </div>
+            
+            <div class="thank-you-actions">
+                <a href="index.html" class="btn btn-primary btn-large">🏠 Ir al Inicio</a>
+                <a href="catalog.html" class="btn btn-secondary btn-large">🛍️ Ver Catálogo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="index.html">Inicio</a>
+                <a href="catalog.html">Catálogo</a>
+                <a href="contactForm.html">Contacto</a>
+            </div>
+            <p>&copy; 2026 TechStore. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+</body>
 </html>

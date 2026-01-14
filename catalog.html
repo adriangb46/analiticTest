@@ -1,27 +1,147 @@
 <!DOCTYPE html>
-<html>
-    <head>
-         <!-- Google Tag Manager -->
-        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-N54C4ZL4');</script>
-        <!-- End Google Tag Manager -->
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Productos - TechStore</title>
+    <meta name="description" content="Explora nuestro catálogo completo de productos tecnológicos premium.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-N54C4ZL4');</script>
+    <!-- End Google Tag Manager -->
+    
+    <style>
+        .catalog-header {
+            background: var(--bg-secondary);
+            padding: var(--space-xl) 0;
+            text-align: center;
+        }
+        
+        .search-bar {
+            max-width: 600px;
+            margin: 0 auto var(--space-lg);
+        }
+        
+        .filters {
+            display: flex;
+            gap: var(--space-md);
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: var(--space-xl);
+        }
+        
+        .product-category {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: var(--accent-gradient);
+            color: white;
+            border-radius: var(--radius-full);
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-top: var(--space-xs);
+        }
+        
+        .product-description {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        
+        .error-message,
+        .no-results {
+            text-align: center;
+            padding: var(--space-xl);
+            color: var(--text-secondary);
+            font-size: 1.125rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N54C4ZL4"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">⚡ TechStore</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="catalog.html">Catálogo</a></li>
+                <li><a href="contactForm.html">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
 
-    </head>
-    <body>
-        <!-- Google Tag Manager (noscript) -->
-        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N54C4ZL4"
-        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-        <!-- End Google Tag Manager (noscript) -->
-        <table>
-            <tr>
-                <td>
-                    <p>Producto a</p>
-                    <a href="product.html">link producto</a>
-                </td>
-            </tr>
-        </table>
-    </body>
+    <!-- Catalog Header -->
+    <section class="catalog-header">
+        <div class="container">
+            <h1>Nuestro Catálogo</h1>
+            <p style="color: var(--text-secondary); font-size: 1.125rem;">Descubre la mejor tecnología al mejor precio</p>
+        </div>
+    </section>
+
+    <!-- Filters and Search -->
+    <section class="section">
+        <div class="container">
+            <div class="search-bar">
+                <input 
+                    type="text" 
+                    id="search-input" 
+                    class="form-input" 
+                    placeholder="🔍 Buscar productos..."
+                    style="text-align: center;"
+                >
+            </div>
+            
+            <div class="filters">
+                <select id="category-filter" class="form-select" style="max-width: 250px;">
+                    <option value="all">Todas las Categorías</option>
+                    <option value="Audio">Audio</option>
+                    <option value="Wearables">Wearables</option>
+                    <option value="Gaming">Gaming</option>
+                    <option value="Video">Video</option>
+                    <option value="Tablets">Tablets</option>
+                    <option value="Accesorios">Accesorios</option>
+                    <option value="Smart Home">Smart Home</option>
+                </select>
+            </div>
+
+            <!-- Product Grid -->
+            <div id="product-grid" class="grid grid-3">
+                <!-- Products will be loaded here by JavaScript -->
+                <div style="grid-column: 1/-1; text-align: center; padding: var(--space-xl);">
+                    <p style="color: var(--text-secondary);">Cargando productos...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="index.html">Inicio</a>
+                <a href="catalog.html">Catálogo</a>
+                <a href="contactForm.html">Contacto</a>
+            </div>
+            <p>&copy; 2026 TechStore. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/catalog.js"></script>
+</body>
 </html>

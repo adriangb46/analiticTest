@@ -1,0 +1,139 @@
+{
+  "products": [
+    {
+      "id": "prod-001",
+      "name": "Auriculares Inalámbricos Premium",
+      "description": "Auriculares con cancelación de ruido activa, 30 horas de batería y sonido de alta fidelidad. Perfectos para música y llamadas.",
+      "price": 129.99,
+      "currency": "EUR",
+      "category": "Audio",
+      "image": "images/headphones.png",
+      "features": [
+        "Cancelación de ruido activa",
+        "30 horas de batería",
+        "Bluetooth 5.0",
+        "Plegable y portátil"
+      ]
+    },
+    {
+      "id": "prod-002",
+      "name": "Smartwatch Deportivo",
+      "description": "Reloj inteligente con monitor de frecuencia cardíaca, GPS integrado y resistencia al agua. Ideal para deportistas.",
+      "price": 199.99,
+      "currency": "EUR",
+      "category": "Wearables",
+      "image": "images/smartwatch.png",
+      "features": [
+        "Monitor cardíaco 24/7",
+        "GPS integrado",
+        "Resistente al agua IP68",
+        "Batería de 7 días"
+      ]
+    },
+    {
+      "id": "prod-003",
+      "name": "Teclado Mecánico RGB",
+      "description": "Teclado mecánico gaming con switches personalizables, iluminación RGB y software de personalización avanzada.",
+      "price": 89.99,
+      "currency": "EUR",
+      "category": "Gaming",
+      "image": "images/keyboard.png",
+      "features": [
+        "Switches mecánicos",
+        "RGB personalizable",
+        "Anti-ghosting completo",
+        "Reposamuñecas magnético"
+      ]
+    },
+    {
+      "id": "prod-004",
+      "name": "Cámara Web 4K",
+      "description": "Cámara web profesional con resolución 4K, micrófono dual integrado y enfoque automático. Perfecta para streaming.",
+      "price": 149.99,
+      "currency": "EUR",
+      "category": "Video",
+      "image": "images/webcam.png",
+      "features": [
+        "Resolución 4K a 30fps",
+        "Micrófono dual con reducción de ruido",
+        "Enfoque automático",
+        "Campo de visión 90°"
+      ]
+    },
+    {
+      "id": "prod-005",
+      "name": "Mouse Gaming Precision",
+      "description": "Ratón gaming ergonómico con sensor óptico de 16000 DPI, 8 botones programables y peso ajustable.",
+      "price": 59.99,
+      "currency": "EUR",
+      "category": "Gaming",
+      "image": "images/mouse.png",
+      "features": [
+        "Sensor óptico 16000 DPI",
+        "8 botones programables",
+        "Peso ajustable",
+        "RGB personalizable"
+      ]
+    },
+    {
+      "id": "prod-006",
+      "name": "Tablet Pro 11 pulgadas",
+      "description": "Tablet de alta gama con pantalla OLED de 11 pulgadas, procesador de 8 núcleos y soporte para lápiz digital.",
+      "price": 599.99,
+      "currency": "EUR",
+      "category": "Tablets",
+      "image": "images/tablet.png",
+      "features": [
+        "Pantalla OLED 11 pulgadas",
+        "Procesador 8 núcleos",
+        "128GB almacenamiento",
+        "Soporte para lápiz digital"
+      ]
+    },
+    {
+      "id": "prod-007",
+      "name": "Cargador Inalámbrico Rápido",
+      "description": "Base de carga inalámbrica compatible con todos los dispositivos Qi, carga rápida de 15W y diseño elegante.",
+      "price": 34.99,
+      "currency": "EUR",
+      "category": "Accesorios",
+      "image": "images/charger.png",
+      "features": [
+        "Carga rápida 15W",
+        "Compatible Qi universal",
+        "Protección contra sobrecalentamiento",
+        "Diseño antideslizante"
+      ]
+    },
+    {
+      "id": "prod-008",
+      "name": "Altavoz Bluetooth Portátil",
+      "description": "Altavoz bluetooth resistente al agua con 20 horas de reproducción, sonido 360° y graves potentes.",
+      "price": 79.99,
+      "currency": "EUR",
+      "category": "Audio",
+      "image": "images/speaker.png",
+      "features": [
+        "Resistente al agua IPX7",
+        "20 horas de batería",
+        "Sonido 360 grados",
+        "Conexión TWS para estéreo"
+      ]
+    },
+    {
+      "id": "prod-009",
+      "name": "Lámpara LED Inteligente",
+      "description": "Lámpara de escritorio con control WiFi, 16 millones de colores, temporizador y compatibilidad con asistentes de voz.",
+      "price": 44.99,
+      "currency": "EUR",
+      "category": "Smart Home",
+      "image": "images/lamp.png",
+      "features": [
+        "Control WiFi y app móvil",
+        "16 millones de colores",
+        "Compatible Alexa y Google",
+        "Modos de iluminación preestablecidos"
+      ]
+    }
+  ]
+}

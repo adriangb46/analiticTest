@@ -1,51 +1,158 @@
 <!DOCTYPE html>
-<html>
-    <head>
-         <!-- Google Tag Manager -->
-        <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-        })(window,document,'script','dataLayer','GTM-N54C4ZL4');</script>
-        <!-- End Google Tag Manager -->
-        <title>
-            contactForm
-        </title>
-    </head>
-    <body>
-        <!-- Google Tag Manager (noscript) -->
-        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N54C4ZL4"
-        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-        <!-- End Google Tag Manager (noscript) -->
-        <form id="contact-form" action="thanks-you.html">
-            <label>Name:  <br>
-                <input type="text" name = "nombre" required> 
-            </label>
-            <br><br>
-            <label>email:  <br>
-                <input type="text" name = "nombre" required> 
-            </label>
-            <br><br>
-            <label>tipo de consulta:  <br>
-                <select name="type">
-                    <option value = "info">Información</option>
-                    <option value = "sell">ventas</option>
-                    <option value = "it">Soporte</option>
-                </select>
-            </label>
-            <button type = "submit" id="btnEnviar">
-                enviar
-            </button>
-        </form>
-        <script>
-            document.getElementById("contact-form").addEventListener('submit',function() {
-                var tipo_Consulta = document.querySelector('select[name="type"]').value;
-                dataLayer.push({
-                    event: 'form_submit',
-                    form_name: 'contact_form',
-                    contact_type: tipo_Consulta
-                });
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Contacto - TechStore</title>
+    <meta name="description" content="Contáctanos para cualquier consulta sobre nuestros productos.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@700&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-N54C4ZL4');</script>
+    <!-- End Google Tag Manager -->
+    
+    <style>
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            padding: var(--space-xl);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
+            border: 1px solid rgba(102, 126, 234, 0.2);
+        }
+        
+        .form-header {
+            text-align: center;
+            margin-bottom: var(--space-xl);
+        }
+        
+        .form-header h1 {
+            margin-bottom: var(--space-sm);
+        }
+        
+        .form-icon {
+            font-size: 4rem;
+            margin-bottom: var(--space-md);
+        }
+    </style>
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N54C4ZL4"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">⚡ TechStore</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="catalog.html">Catálogo</a></li>
+                <li><a href="contactForm.html">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Contact Form Section -->
+    <section class="section">
+        <div class="container">
+            <div class="form-container animate-fadeInUp">
+                <div class="form-header">
+                    <div class="form-icon">📧</div>
+                    <h1>Contáctanos</h1>
+                    <p style="color: var(--text-secondary);">Estamos aquí para ayudarte. Envíanos tu consulta y te responderemos pronto.</p>
+                </div>
+                
+                <form id="contact-form" action="thanks-you.html">
+                    <div class="form-group">
+                        <label class="form-label" for="name">Nombre *</label>
+                        <input 
+                            type="text" 
+                            id="name"
+                            name="nombre" 
+                            class="form-input"
+                            placeholder="Tu nombre completo"
+                            required
+                        >
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="email">Email *</label>
+                        <input 
+                            type="email" 
+                            id="email"
+                            name="email" 
+                            class="form-input"
+                            placeholder="tu@email.com"
+                            required
+                        >
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="type">Tipo de Consulta *</label>
+                        <select id="type" name="type" class="form-select" required>
+                            <option value="">Selecciona una opción</option>
+                            <option value="info">Información de Productos</option>
+                            <option value="sell">Ventas</option>
+                            <option value="it">Soporte Técnico</option>
+                            <option value="other">Otra Consulta</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label" for="message">Mensaje *</label>
+                        <textarea 
+                            id="message"
+                            name="mensaje" 
+                            class="form-textarea"
+                            placeholder="Cuéntanos en qué podemos ayudarte..."
+                            required
+                        ></textarea>
+                    </div>
+                    
+                    <button type="submit" id="btnEnviar" class="btn btn-primary btn-large" style="width: 100%;">
+                        ✉️ Enviar Mensaje
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="index.html">Inicio</a>
+                <a href="catalog.html">Catálogo</a>
+                <a href="contactForm.html">Contacto</a>
+            </div>
+            <p>&copy; 2026 TechStore. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.getElementById("contact-form").addEventListener('submit', function() {
+            var tipo_Consulta = document.querySelector('select[name="type"]').value;
+            dataLayer.push({
+                event: 'form_submit',
+                form_name: 'contact_form',
+                contact_type: tipo_Consulta
             });
-        </script>
-    </body>
+        });
+    </script>
+</body>
 </html>
