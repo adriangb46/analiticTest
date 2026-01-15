@@ -35,11 +35,16 @@ document.addEventListener("DOMContentLoaded", async function () {
     const categoryFilter = document.getElementById("category-filter");
     if (categoryFilter) {
       categoryFilter.addEventListener("change", (e) => {
-        const category = e.target.value;
+        const category = e.target.value.toLowerCase();
+
         const filteredProducts =
           category === "all"
             ? products
-            : products.filter((product) => product.category === category);
+            : products.filter(
+                (product) =>
+                  product.category.toLowerCase() === category
+              );
+
         renderProducts(filteredProducts);
       });
     }
