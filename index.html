@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
+    <script src="./appmeasurement-2.27.0/dist/AppMeasurement.js"></script>
+    <script>
+        var s_acount = "ageo1xxlontestecomerce";
+        var s = s_gi(s_acount);
+        s.pageName = "HomePage";
+        s.t();  
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>TechStore - Tu Tienda de Tecnología Premium</title>
@@ -36,12 +43,7 @@
     <!-- End Google Tag Manager -->
   </head>
   <body>
-    <script src="./appmeasurement-2.27.0/dist/AppMeasurement.js">
-        var s_acount = "ageo1xxlontestecomerce";
-        var s = s_gi(s_acount);
-        s.pageName = "HomePage";
-        s.t();  
-    </script>
+    
     <!-- Google Tag Manager (noscript) -->
     <!-- <noscript
       ><iframe
