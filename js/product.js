@@ -66,6 +66,7 @@ function renderProductDetail(product) {
         </div>
     `;
 
+    /*
     // Track product view
     if (typeof dataLayer !== 'undefined') {
         dataLayer.push({
@@ -76,9 +77,11 @@ function renderProductDetail(product) {
             currency: product.currency
         });
     }
+        */
 }
 
 function handlePurchase(product) {
+    /*
     // Track purchase event
     if (typeof dataLayer !== 'undefined') {
         dataLayer.push({
@@ -89,6 +92,12 @@ function handlePurchase(product) {
             currency: product.currency
         });
     }
+    */
+
+    s.linkTrackVars ="events";  //Quiero que solo mires eventos ahora
+    s.linkTrackEvents = "event1"; //Como se llama el evnto que voy a registar
+    s.events = "event1";  //Este es el evento que acaba de pasar(Necesatio aunque redundante)
+    s.tl(this, 'o', "producto Comprado")
 
     // Show success message
     alert(`¡${product.name} agregado al carrito!`);

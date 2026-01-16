@@ -97,12 +97,29 @@ function renderProducts(products) {
 
 function goToProduct(productId) {
   // Track catalog click event
+  /*
   if (typeof dataLayer !== "undefined") {
     dataLayer.push({
       event: "product_click",
       product_id: productId,
     });
   }
+  */
+  //version basica
+  s.linkTrackVars ="events";  //Quiero que solo mires eventos ahora
+  s.linkTrackEvents = "event1"; //Como se llama el evnto que voy a registar
+  s.events = "event1";  //Este es el evento que acaba de pasar(Necesatio aunque redundante)
+  s.tl(this, 'o', "Paso a Producto")
+  /*
+  //version con parametros
+  s.linkTrackVars ="events,eVars1";  //Quiero que solo mires eventos ahora y la variable 1
+  s.linkTrackEvents = "event1"; //Como se llama el evnto que voy a registar
+  s.events = "event1";  //Este es el evento que acaba de pasar(Necesatio aunque redundante)
+  s.eVars1 = productId;
+  s.tl(this, 'o', "Paso a Producto")
+  */
 
-  window.location.href = `product.html?id=${productId}`;
+   setTimeout(function () {
+    window.location.href = `product.html?id=${productId}`;
+  }, 300);
 }
