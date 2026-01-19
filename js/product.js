@@ -92,7 +92,7 @@ function handlePurchase(product) {
             currency: product.currency
         });
     }
-    */
+    
 
     s.linkTrackVars ="events";  //Quiero que solo mires eventos ahora
     s.linkTrackEvents = "event1"; //Como se llama el evnto que voy a registar
@@ -104,4 +104,5 @@ function handlePurchase(product) {
     
     // Optional: redirect to contact form or checkout
     // window.location.href = 'contactForm.html';
+    */
 }
