@@ -160,6 +160,7 @@
     <script>
         document.getElementById("contact-form").addEventListener('submit', function() {
             var tipo_Consulta = document.querySelector('select[name="type"]').value;
+            /*
             s.linkTrackVars ="events,eVar1";  //Quiero que solo mires eventos ahora y la variable 1
             s.linkTrackEvents = "event2"; //Como se llama el evnto que voy a registar
             s.events = "event2";  //Este es el evento que acaba de pasar(Necesatio aunque redundante)
@@ -173,6 +174,18 @@
                 contact_type: tipo_Consulta
             });
             */
+           var y = {};
+
+            // Variables que quieres enviar
+            y.eVar1 = tipo_Consulta;
+            y.events = "event2";
+
+            // MUY IMPORTANTE
+            y.linkTrackVars = "eVar1,events";
+            y.linkTrackEvents = "event2";
+
+            // Llamada correcta
+            s.tl(this, 'o', 'Example override link', y);
         });
     </script>
 </body>
