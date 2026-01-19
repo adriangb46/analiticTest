@@ -174,10 +174,12 @@
                 contact_type: tipo_Consulta
             });
             */
-           var y = new Object();
-           y.eVar1 = tipo_consulta;
-           y.events = "event2";
-           s.tl(this,'o',"Paso a prodcutos",y);
+            var y = new Object();
+            y.linkTrackVars ="events,eVar1";  //Quiero que solo mires eventos ahora y la variable 1
+            y.linkTrackEvents = "event2"; //Como se llama el evnto que voy a registar
+            y.eVar1 = tipo_consulta;
+            y.events = "event2";
+            s.tl(this,'o',"Paso a prodcutos",y);
         });
     </script>
 </body>
