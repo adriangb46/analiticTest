@@ -89,7 +89,7 @@
                     <p style="color: var(--text-secondary);">Estamos aquí para ayudarte. Envíanos tu consulta y te responderemos pronto.</p>
                 </div>
                 
-                <form id="contact-form">
+                <form id="contact-form" action = "submitForm()">
                     <div class="form-group">
                         <label class="form-label" for="name">Nombre *</label>
                         <input 
@@ -158,6 +158,25 @@
 
     
     <script>
+        function submitForm(){
+            var tipo_Consulta = document.querySelector('select[name="type"]').value;
+            var y = {};
+
+            // Variables que quieres enviar
+            y.eVar1 = tipo_Consulta;
+            y.events = "event2";
+
+            // MUY IMPORTANTE
+            y.linkTrackVars = "eVar1,events";
+            y.linkTrackEvents = "event2";
+
+            // Llamada correcta
+            s.tl(this, 'o', 'Example override link', y);
+
+            window.location.href = "thanks-you.html";
+        }
+
+        /*
         document.getElementById("contact-form").addEventListener('submit', function() {
             var tipo_Consulta = document.querySelector('select[name="type"]').value;
             /*
@@ -173,7 +192,7 @@
                 form_name: 'contact_form',
                 contact_type: tipo_Consulta
             });
-            */
+            
            var y = {};
 
             // Variables que quieres enviar
@@ -186,8 +205,10 @@
 
             // Llamada correcta
             s.tl(this, 'o', 'Example override link', y);
+
             window.location.href = "thanks-you.html";
         });
+        */
     </script>
 </body>
 </html>
