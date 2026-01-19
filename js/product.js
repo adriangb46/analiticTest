@@ -98,10 +98,10 @@ function handlePurchase(product) {
     s.linkTrackEvents = "event1"; //Como se llama el evnto que voy a registar
     s.events = "event1";  //Este es el evento que acaba de pasar(Necesatio aunque redundante)
     s.tl(this, 'o', "producto Comprado")
-
+*/
     // Show success message
     alert(`¡${product.name} agregado al carrito!`);
-    
+    /*
     // Optional: redirect to contact form or checkout
     // window.location.href = 'contactForm.html';
     */
