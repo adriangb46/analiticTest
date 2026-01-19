@@ -106,6 +106,7 @@ function goToProduct(productId) {
   }
   */
   //version basica
+  /*
   s.linkTrackVars ="events";  //Quiero que solo mires eventos ahora
   s.linkTrackEvents = "event1"; //Como se llama el evnto que voy a registar
   s.events = "event1";  //Este es el evento que acaba de pasar(Necesatio aunque redundante)
