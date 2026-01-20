@@ -2,6 +2,7 @@ let cart = [];
 
 function addToCart(producto){
     cart.push(producto);
+    renderCart();
 }
 
 function getCart(){

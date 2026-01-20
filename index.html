@@ -161,9 +161,14 @@
     </footer>
     <!-- Carrito modal-->
     <div id="cartModal">
+        <span id="cartModalExit">&times;</span>
         <div class="cartContent" id="cartGrid">
         </div>
     </div>
     <script src="js/cart.js"></script>
+    <script>
+        var clickExitMOdal = document.getElementById("cartModalExit");
+        clickExitMOdal.addEventListener("click",hideCart());
+    </script>
   </body>
 </html>
