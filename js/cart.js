@@ -9,15 +9,16 @@ function getCart(){
 }
 
 function showCart(){
+    var cartContainer = document.getElementById("cartModal");
     cartContainer.style.display = "block";
 }
 
 function hideCart(){
+    var cartContainer = document.getElementById("cartModal");
     cartContainer.style.display = "none";
 }
 
 function renderCart(){
-    var cartContainer = document.getElementById("cartModal");
     var cartGrid = document.getElementById("cartGrid");
     if(cart.length === 0){
         cartGrid.innerHTML = `<p>no hay productos en el carrito</p>`
