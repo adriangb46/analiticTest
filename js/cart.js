@@ -37,7 +37,7 @@ function renderCart(){
     }
 }
 
-document.addEventListener("DOMContentLoaded", async function () {
+document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("cartButton").addEventListener("click",showCart());
     renderCart();
 });
