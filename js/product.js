@@ -101,6 +101,11 @@ function handlePurchase(product) {
 */
     // Show success message
     alert(`¡${product.name} agregado al carrito!`);
+    addToCart({
+        name:'${product.name}',
+        price:'${product.price}',
+        category:'${product.category}'
+    });
     /*
     // Optional: redirect to contact form or checkout
     // window.location.href = 'contactForm.html';
