@@ -8,6 +8,14 @@ function getCart(){
     return cart;
 }
 
+function showCart(){
+    cartContainer.style.display = "block";
+}
+
+function hideCart(){
+    cartContainer.style.display = "none";
+}
+
 function renderCart(){
     var cartContainer = document.getElementById("cartModal");
     var cartGrid = cartContainer.querySelector(".cartContent");
@@ -26,8 +34,9 @@ function renderCart(){
         <br>
         `
         ).join("");
-
-    cartContainer.style.display = "block";
     }
-
 }
+
+document.addEventListener("DOMContentLoaded", async function () {
+   renderCart();
+});
