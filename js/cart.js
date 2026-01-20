@@ -1,4 +1,4 @@
-let cart;
+let cart = sessionStorage.getItem("cart")|[];
 
 function addToCart(producto){
     cart.push(producto);
