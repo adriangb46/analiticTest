@@ -40,6 +40,7 @@ function renderCart(){
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    document.getElementById("cartButton").addEventListener("click",showCart());
+    document.getElementById("cartButton").addEventListener("click",showCart);
+    document.getElementById("cartModalExit").addEventListener("click",hideCart);
     renderCart();
 });
