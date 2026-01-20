@@ -1,8 +1,10 @@
-let cart = [];
+let cart;
 
 function addToCart(producto){
     cart.push(producto);
+    sessionStorage.setItem("cart",cart)
     renderCart();
+
 }
 
 function getCart(){
@@ -40,6 +42,8 @@ function renderCart(){
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+    cart = sessionStorage.getItem("cart");
+    if(cart === undefined) cart = [];
     document.getElementById("cartButton").addEventListener("click",showCart);
     document.getElementById("cartModalExit").addEventListener("click",hideCart);
     renderCart();
