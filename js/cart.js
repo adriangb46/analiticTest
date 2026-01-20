@@ -38,5 +38,6 @@ function renderCart(){
 }
 
 document.addEventListener("DOMContentLoaded", async function () {
-   renderCart();
+    document.getElementById("cartButton").addEventListener("click",showCart());
+    renderCart();
 });
