@@ -100,12 +100,12 @@ function handlePurchase(product) {
     s.tl(this, 'o', "producto Comprado")
 */
     // Show success message
-    alert(`¡${product.name} agregado al carrito!`);
     addToCart({
         name:product.name,
         price:product.price,
         category:product.category
     });
+    alert(`¡${product.name} agregado al carrito!`);
     /*
     // Optional: redirect to contact form or checkout
     // window.location.href = 'contactForm.html';
