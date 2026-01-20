@@ -18,7 +18,7 @@ function hideCart(){
 
 function renderCart(){
     var cartContainer = document.getElementById("cartModal");
-    var cartGrid = cartContainer.querySelector(".cartContent");
+    var cartGrid = document.getElementById("cartGrid");
     if(cart.length === 0){
         cartGrid.innerHTML = `<p>no hay productos en el carrito</p>`
     }else{
