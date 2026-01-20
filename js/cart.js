@@ -9,26 +9,24 @@ function getCart(){
 }
 
 function rederCart(){
-  var cartContainer = document.getElementById("cartModal");
-
-  if(cart.length === 0){
-    cartContainer.innerHTML = `<p>no hay productos en el carrito</p>`
-
-  }else{
-    cartContainer.innerHTML = cart.map(
-      (product) =>`
-      <div class = "product-card">
-        <div>
-            <p class = "product-name">${product.name}</p>
-            <p class = "product-price">${product.price}</p>
-            <p class = "prodcut-category">${product.category}</p>
+    var cartContainer = document.getElementById("cartModal");
+    var cartGrid = cartContainer.querySelector(".cartContent");
+    if(cart.length === 0){
+        cartGrid.innerHTML = `<p>no hay productos en el carrito</p>`
+    }else{
+        cartGrid.innerHTML = cart.map(
+        (product) =>`
+        <div class = "product-card">
+            <div>
+                <p class = "product-name">${product.name}</p>
+                <p class = "product-price">${product.price}</p>
+                <p class = "prodcut-category">${product.category}</p>
+            </div>
         </div>
-      </div>
-      <br>
-      `
-    ).join("");
-  }
+        <br>
+        `
+        ).join("");
 
-  cartContainer.style.display = "block";
-  
+    cartContainer.style.display = "block";
+
 }
