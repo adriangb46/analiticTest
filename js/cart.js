@@ -2,7 +2,7 @@ let cart = sessionStorage.getItem("cart")|[];
 
 function addToCart(producto){
     cart.push(producto);
-    sessionStorage.setItem("cart",JSON.stringify(cart))
+    sessionStorage.setItem("cart",JSON.stringify(cart));
     renderCart();
 
 }
@@ -43,6 +43,12 @@ function renderCart(){
 
 document.addEventListener("DOMContentLoaded", function () {
     const storedCart = sessionStorage.getItem("cart");
+    if(storedCart){
+        cart = JSON.parse(storedCart);
+    }else{
+        cart = [];
+        sessionStorage.setItem("cart",JSON.stringify(cart))
+    }
     cart = storedCart ? JSON.parse(storedCart) : [];
     document.getElementById("cartButton").addEventListener("click",showCart);
     document.getElementById("cartModalExit").addEventListener("click",hideCart);
