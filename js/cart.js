@@ -2,7 +2,7 @@ let cart = sessionStorage.getItem("cart")|[];
 
 function addToCart(producto){
     cart.push(producto);
-    sessionStorage.setItem("cart",cart)
+    sessionStorage.setItem("cart",JSON.stringify(cart))
     renderCart();
 
 }
@@ -42,8 +42,8 @@ function renderCart(){
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    cart = sessionStorage.getItem("cart");
-    if(cart === undefined) cart = [];
+    const storedCart = sessionStorage.getItem("cart");
+    cart = storedCart ? JSON.parse(storedCart) : [];
     document.getElementById("cartButton").addEventListener("click",showCart);
     document.getElementById("cartModalExit").addEventListener("click",hideCart);
     renderCart();
