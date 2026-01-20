@@ -29,4 +29,6 @@ function rederCart(){
     ).join("");
   }
 
+  cartContainer.style.display = "block";
+  
 }
