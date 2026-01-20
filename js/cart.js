@@ -28,5 +28,6 @@ function renderCart(){
         ).join("");
 
     cartContainer.style.display = "block";
+    }
 
 }
