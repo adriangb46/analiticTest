@@ -8,7 +8,7 @@ function getCart(){
     return cart;
 }
 
-function rederCart(){
+function renderCart(){
     var cartContainer = document.getElementById("cartModal");
     var cartGrid = cartContainer.querySelector(".cartContent");
     if(cart.length === 0){
