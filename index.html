@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
+    <script src="target/at.js"></script>
     <!--
     <script src="./appmeasurement-2.27.0/dist/AppMeasurement.js"></script>
     <script>
@@ -10,7 +11,7 @@
         s.t();  
     </script>
     -->
-    <script src="https://assets.adobedtm.com/7c43efc80d3e/841f9f72a3b5/launch-cf5f4f4b5f2c-development.min.js" async></script>
+    <!-- <script src="https://assets.adobedtm.com/7c43efc80d3e/841f9f72a3b5/launch-cf5f4f4b5f2c-development.min.js" async></script> -->
     
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -45,6 +46,33 @@
       })(window, document, "script", "dataLayer", "GTM-N54C4ZL4");
     </script> -->
     <!-- End Google Tag Manager -->
+     <script>
+        var au = parseInt(localStorage.getItem("yaHaComprado") || 0, 10);
+
+        if (window.adobe && window.adobe.target) {
+        console.log("Se ha enviado");
+
+        window.adobe.target.getOffer({
+            mbox: "vipMbox",
+            params: {
+            bought: au === 1
+            },
+            success: function (offer) {
+            window.adobe.target.applyOffer({
+                mbox: "vipMbox",
+                offer: offer
+            });
+            console.log("Oferta aplicada");
+            },
+            error: function (status, error) {
+            console.error("Error al disparar mbox", status, error);
+            }
+        });
+
+        } else {
+        console.log("No se ha enviado");
+        }
+    </script>
   </head>
   <body>
     
