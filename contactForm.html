@@ -2,6 +2,12 @@
 <html lang="es">
 <head>
     <script src="target/at.js"></script>
+    <script>
+        if (window.adobe && window.adobe.target) {
+            // Esto asegura que se creen cookies como mboxPC
+            window.adobe.target.load();
+        }
+    </script>
     
     <!-- <script src="https://assets.adobedtm.com/7c43efc80d3e/841f9f72a3b5/launch-cf5f4f4b5f2c-development.min.js" async></script> -->
     <!--
