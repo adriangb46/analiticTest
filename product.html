@@ -120,31 +120,29 @@
         }
     </style>
     <script>
-        var au = parseInt(localStorage.getItem("yaHaComprado") || 0, 10);
+        var au = localStorage.getItem("yaHaComprado") || "0";
 
         if (window.adobe && window.adobe.target) {
-        console.log("Se ha enviado");
-
         window.adobe.target.getOffer({
             mbox: "vipMbox",
-            params: {
-            bought: au === 1
+            params: { bought: au == 1 },
+            success: function(offer) {
+            // Aplica la experiencia visual (XT)
+            window.adobe.target.applyOffer({ mbox: "vipMbox", offer: offer });
+
+            console.log("🎯 Offer aplicada");
+            console.log("Activity ID:", offer.activityId);
+            console.log("Experience ID:", offer.experienceId);
+            console.log("Matched Audiences:", offer.matchedAudiences);
             },
-            success: function (offer) {
-            window.adobe.target.applyOffer({
-                mbox: "vipMbox",
-                offer: offer
-            });
-            console.log("Oferta aplicada");
-            },
-            error: function (status, error) {
-            console.error("Error al disparar mbox", status, error);
+            error: function(status, error) {
+            console.error("❌ Error disparando vipMbox", status, error);
             }
         });
-
         } else {
-        console.log("No se ha enviado");
+        console.warn("⚠️ Target no está cargado todavía");
         }
+
     </script>
 </head>
 <body>
