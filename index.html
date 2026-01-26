@@ -53,7 +53,6 @@
         if (window.adobe && window.adobe.target) {
         window.adobe.target.getOffer({
             mbox: "vipMbox",
-            params: { bought: au == 1 },
             success: function(offer) {
             // Aplica la experiencia visual (XT)
             window.adobe.target.applyOffer({ mbox: "vipMbox", offer: offer });
