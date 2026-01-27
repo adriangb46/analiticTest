@@ -69,19 +69,19 @@
         if (window.adobe && window.adobe.target) {
         window.adobe.target.getOffer({
             mbox: "vipMbox",
-            params:{"profile.bought": au},
+            params:{"bought": au},
             success: function(offer) {
             // Aplica la experiencia visual (XT)
-            window.adobe.target.applyOffer({ mbox: "vipMbox", offer: offer });
-
-            console.log("🎯 Offer aplicada");
-            console.log("Activity ID:", offer.activityId);
-            console.log("Experience ID:", offer.experienceId);
-            console.log("Matched Audiences:", offer.matchedAudiences);
+            window.adobe.target.applyOffer({
+                mbox: "vipMbox",
+                offer: offer
+            });
+            console.log(offer);
             },
             error: function(status, error) {
             console.error("❌ Error disparando vipMbox", status, error);
-            }
+            },
+            trace: true
         });
         } else {
         console.warn("⚠️ Target no está cargado todavía");
