@@ -48,18 +48,12 @@
     </script> -->
     <!-- End Google Tag Manager -->
      <script>
-        var au = localStorage.getItem("yaHaComprado") || "0";
-
-        if (window.adobe && window.adobe.target) {
+if (window.adobe && window.adobe.target) {
         window.adobe.target.getOffer({
             mbox: "vipMbox",
-            params:{"bought": au},
+            params:{"profile.bought": "1"},
             success: function(offer) {
-            // Aplica la experiencia visual (XT)
-            window.adobe.target.applyOffer({
-                mbox: "vipMbox",
-                offer: offer
-            });
+            console.log("se ha echo");
             console.log(offer);
             },
             error: function(status, error) {
@@ -70,8 +64,7 @@
         } else {
         console.warn("⚠️ Target no está cargado todavía");
         }
-
-    </script>
+</script>
   </head>
   <body>
     

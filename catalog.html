@@ -85,6 +85,7 @@
     </style>
     <script>
         var au = localStorage.getItem("yaHaComprado") || "0";
+        var cat = localStorage.getItem("categoriaComprada") || null;
 
         if (window.adobe && window.adobe.target) {
         window.adobe.target.getOffer({
