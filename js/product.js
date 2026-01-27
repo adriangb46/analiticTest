@@ -105,7 +105,16 @@ function handlePurchase(product) {
         price:product.price,
         category:product.category
     });
+
     alert(`¡${product.name} agregado al carrito!`);
+
+    adobe.target.trackEvent({
+        mbox: "vipMbox",
+        params: {
+            "profile.bought": "1"
+        }
+    });
+
     /*
     // Optional: redirect to contact form or checkout
     // window.location.href = 'contactForm.html';
