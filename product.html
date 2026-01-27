@@ -115,15 +115,24 @@
         }
     </style>
     <script>
-      mboxDefine('homeMbox', 'target-global-mbox');
-      var au = localStorage.getItem("yaHaComprado") || "0";
-      mboxUpdate('homeMbox', { profile: { bought: "1" } }, function(offer) {
-         if (offer && offer.length) {
-          offer.apply(); 
-        }else{
-          console.log("no he recibido nada");
+        var au = localStorage.getItem("yaHaComprado") || "0";
+
+        if (window.adobe && window.adobe.target) {
+        window.adobe.target.getOffer({
+            mbox: "vipMbox",
+            params:{"profile.bought": au},
+            success: function(offer) {
+            // Aplica la experiencia visual (XT)
+            window.adobe.target.applyOffer(offer);
+            },
+            error: function(status, error) {
+            console.error("❌ Error disparando vipMbox", status, error);
+            }
+        });
+        } else {
+        console.warn("⚠️ Target no está cargado todavía");
         }
-      });
+
     </script>
 </head>
 <body>

@@ -71,6 +71,7 @@
         if (window.adobe && window.adobe.target) {
         window.adobe.target.getOffer({
             mbox: "vipMbox",
+            params:{"profile.bought": au},
             success: function(offer) {
             // Aplica la experiencia visual (XT)
             window.adobe.target.applyOffer(offer);
