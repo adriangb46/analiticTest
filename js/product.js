@@ -108,12 +108,7 @@ function handlePurchase(product) {
 
     alert(`¡${product.name} agregado al carrito!`);
 
-    adobe.target.trackEvent({
-        mbox: "vipMbox",
-        params: {
-            "profile.bought": "1"
-        }
-    });
+   
 
     /*
     // Optional: redirect to contact form or checkout
