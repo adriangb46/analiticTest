@@ -155,7 +155,6 @@
 
   window.addItem = function addItemToCart(item) {
     const cart = getCart();
-    console.log(cart);
     const exists = cart.find(p => p.id === item.id);
     if (exists) {
     exists.quantity += item.quantity;

@@ -101,6 +101,7 @@ function handlePurchase(product) {
 */
     // Show success message
     window.addItem({
+        id:product.id;
         name:product.name,
         price:product.price,
         category:product.category
