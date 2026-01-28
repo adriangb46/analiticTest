@@ -169,14 +169,27 @@
   renderCart();
 })();
 
-export function addItem(item) {
+function addItemToCart(item) {
     const cart = getCart();
     const exists = cart.find(p => p.id === item.id);
     if (exists) {
-      exists.quantity += item.quantity;
+    exists.quantity += item.quantity;
     } else {
-      cart.push(item);
+    cart.push(item);
     }
     setCart(cart);
+    getHashToAnalitics();
     renderCart();
-  }
+}
+
+function hashDelCarrito(obj) {
+const str = JSON.stringify(obj) + Date.now();
+let hash = 2166136261;
+for (let i = 0; i < str.length; i++) {
+    hash ^= str.charCodeAt(i);
+    hash = Math.imul(hash, 16777619);
+}
+return (hash >>> 0).toString(36);
+}
+
+console.log(hashFNV1a(carrito)); // ejemplo: "k5r7q8"

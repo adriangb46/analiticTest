@@ -1,4 +1,6 @@
 // Product.js - Product Detail Page
+
+import {addItem} from "js/carrito.js";
 document.addEventListener('DOMContentLoaded', async function() {
     // Get product ID from URL
     const urlParams = new URLSearchParams(window.location.search);
@@ -100,7 +102,7 @@ function handlePurchase(product) {
     s.tl(this, 'o', "producto Comprado")
 */
     // Show success message
-    addItem({
+    addItemToCart({
         name:product.name,
         price:product.price,
         category:product.category
