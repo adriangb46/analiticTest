@@ -167,7 +167,7 @@
     }
 
     function hashDelCarrito(obj) {
-    const str = JSON.stringify(obj) + Date.now();
+    const str = JSON.stringify(obj) + _satellite.getVar("randomNumberForHAshing");
     let hash = 2166136261;
     for (let i = 0; i < str.length; i++) {
         hash ^= str.charCodeAt(i);
