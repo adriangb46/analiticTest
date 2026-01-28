@@ -169,7 +169,7 @@
             cart.push(item);
         }
         setCart(cart);
-        console.log(cartHasher(cart));
+        localStorage.setItem("lastHash",cartHasher(cart));
         renderCart();
     }
 
