@@ -140,8 +140,8 @@
   // Delegación de botones dentro del carrito
   document.getElementById('cart-body').addEventListener('click', (e) => {
     const action = e.target.dataset.action;
-    const id = parseInt(e.target.dataset.id);
-    if (!action || isNaN(id)) return;
+    const id = e.target.dataset.id;
+    if (!action || !id) return;
 
     if (action === 'remove') removeItem(id);
     if (action === 'increase') increaseQty(id);
