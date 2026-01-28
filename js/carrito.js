@@ -181,7 +181,6 @@
             hash = Math.imul(hash, 16777619);
         }
         var hashres = (hash >>> 0).toString(36);
-        console.log(hashres);
         return hashres;
     }
 
