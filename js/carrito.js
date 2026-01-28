@@ -120,7 +120,7 @@
 
   function checkout() {
     alert("Redirigiendo a la página de pago...");
-    localStorage.setItem("lastBuyCart",cartHasher(getCart());
+    localStorage.setItem("lastBuyCart",cartHasher(getCart()));
     // window.location.href = "/checkout.html";
   }
 
