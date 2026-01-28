@@ -165,7 +165,7 @@
     setCart(sampleCart);
   }
 
-  function addItemToCart(item) {
+  window.addItem = function addItemToCart(item) {
     const cart = getCart();
     const exists = cart.find(p => p.id === item.id);
     if (exists) {
