@@ -94,16 +94,21 @@
   }
 
   function increaseQty(id) {
-    const cart = getCart().map(item => item.id == id ? {...item, quantity: (parseInt(item.quantity) + 1)} : item);
+     const cart = getCart().map(item =>
+      item.id == id
+        ? { ...item, quantity: parseInt(item.quantity) + 1 }
+        : item
+    );
     setCart(cart);
     renderCart();
   }
 
   function decreaseQty(id) {
-    const cart = getCart().map(item => {
-      if (item.id == id) return {...item, quantity: Math.max(parseInt(item.quantity) - 1, 1)};
-      return item;
-    });
+    const cart = getCart().map(item =>
+      item.id == id
+        ? { ...item, quantity: Math.max(parseInt(item.quantity) - 1, 1) }
+        : item
+    );
     setCart(cart);
     renderCart();
   }
