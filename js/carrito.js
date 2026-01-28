@@ -86,7 +86,7 @@
     totalEl.textContent = total.toFixed(2);
   }
 
-  function addItem(item) {
+  export function addItem(item) {
     const cart = getCart();
     const exists = cart.find(p => p.id === item.id);
     if (exists) {
@@ -168,3 +168,15 @@
   // Render inicial
   renderCart();
 })();
+
+export function addItem(item) {
+    const cart = getCart();
+    const exists = cart.find(p => p.id === item.id);
+    if (exists) {
+      exists.quantity += item.quantity;
+    } else {
+      cart.push(item);
+    }
+    setCart(cart);
+    renderCart();
+  }
