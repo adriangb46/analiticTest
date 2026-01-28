@@ -174,7 +174,7 @@
     cart.push(item);
     }
     setCart(cart);
-    getHashToAnalitics();
+    console.log(hashDelCarrito(cart));
     renderCart();
     }
 
