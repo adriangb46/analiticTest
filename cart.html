@@ -3,44 +3,51 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Carrito de Compras</title>
-<style>
-  body { font-family: Arial, sans-serif; margin: 20px; }
-  table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
-  th, td { padding: 10px; border: 1px solid #ccc; text-align: left; }
-  th { background-color: #f2f2f2; }
-  button { padding: 5px 10px; margin: 2px; }
-  #empty-cart { color: red; font-weight: bold; }
-</style>
+<title>Carrito Moderno</title>
+<!-- Styles -->
+<link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-<h1>Carrito de Compras</h1>
+<!-- Botón para abrir carrito -->
+<button class="btn btn-primary" onclick="openCart()">Ver Carrito 🛒</button>
 
-<table id="cart-table">
-  <thead>
-    <tr>
-      <th>Producto</th>
-      <th>Precio</th>
-      <th>Cantidad</th>
-      <th>Subtotal</th>
-      <th>Acciones</th>
-    </tr>
-  </thead>
-  <tbody id="cart-body">
-    <!-- Los productos se insertarán aquí -->
-  </tbody>
-</table>
-
-<div id="empty-cart" style="display:none;">El carrito está vacío.</div>
-<p><strong>Total: $<span id="total">0.00</span></strong></p>
-
-<button id="clear-cart">Vaciar Carrito</button>
+<!-- Modal del Carrito -->
+<div id="cartModal">
+  <div style="
+      background: var(--bg-card);
+      max-width: 600px;
+      margin: 50px auto;
+      padding: var(--space-lg);
+      border-radius: var(--radius-lg);
+      position: relative;
+  ">
+    <h2 class="text-center mb-3">Tu Carrito</h2>
+    <table style="width:100%; border-collapse: collapse; margin-bottom: var(--space-md);">
+      <thead>
+        <tr>
+          <th style="color:var(--text-secondary); text-align:left;">Producto</th>
+          <th style="color:var(--text-secondary); text-align:right;">Precio</th>
+          <th style="color:var(--text-secondary); text-align:center;">Cant</th>
+          <th style="color:var(--text-secondary); text-align:right;">Subtotal</th>
+          <th style="color:var(--text-secondary); text-align:center;">Acciones</th>
+        </tr>
+      </thead>
+      <tbody id="cart-body"></tbody>
+    </table>
+    <p style="text-align:right;"><strong>Total: $<span id="total">0.00</span></strong></p>
+    <div style="text-align:center;">
+      <button class="btn btn-secondary" onclick="clearCart()">Vaciar Carrito</button>
+      <button class="btn btn-primary" onclick="checkout()">Finalizar Compra</button>
+      <button class="btn btn-secondary" onclick="closeCart()">Cerrar</button>
+    </div>
+  </div>
+</div>
 
 <script>
-// ----------------------------
-// Datos de ejemplo (para probar)
-// ----------------------------
+// ------------------------
+// Carrito de ejemplo
+// ------------------------
 if (!sessionStorage.getItem('cart')) {
   const sampleCart = [
     { id: 1, name: 'Camiseta', price: 19.99, quantity: 2 },
@@ -50,24 +57,23 @@ if (!sessionStorage.getItem('cart')) {
   sessionStorage.setItem('cart', JSON.stringify(sampleCart));
 }
 
-// ----------------------------
-// Función para renderizar el carrito
-// ----------------------------
+// ------------------------
+// Render del carrito
+// ------------------------
 function renderCart() {
   const cart = JSON.parse(sessionStorage.getItem('cart')) || [];
   const cartBody = document.getElementById('cart-body');
   const totalEl = document.getElementById('total');
-  const emptyCartEl = document.getElementById('empty-cart');
 
   cartBody.innerHTML = '';
   let total = 0;
 
   if (cart.length === 0) {
-    emptyCartEl.style.display = 'block';
+    const row = document.createElement('tr');
+    row.innerHTML = `<td colspan="5" style="text-align:center; color:var(--text-secondary);">El carrito está vacío</td>`;
+    cartBody.appendChild(row);
     totalEl.textContent = '0.00';
     return;
-  } else {
-    emptyCartEl.style.display = 'none';
   }
 
   cart.forEach(item => {
@@ -75,16 +81,15 @@ function renderCart() {
     total += subtotal;
 
     const row = document.createElement('tr');
-
     row.innerHTML = `
-      <td>${item.name}</td>
-      <td>$${item.price.toFixed(2)}</td>
-      <td>${item.quantity}</td>
-      <td>$${subtotal.toFixed(2)}</td>
-      <td>
-        <button onclick="removeItem(${item.id})">Eliminar</button>
-        <button onclick="increaseQty(${item.id})">+</button>
-        <button onclick="decreaseQty(${item.id})">-</button>
+      <td style="color:var(--text-primary);">${item.name}</td>
+      <td style="text-align:right; color:var(--accent);">$${item.price.toFixed(2)}</td>
+      <td style="text-align:center; color:var(--text-primary);">${item.quantity}</td>
+      <td style="text-align:right; color:var(--accent);">$${subtotal.toFixed(2)}</td>
+      <td style="text-align:center;">
+        <button class="btn btn-secondary" onclick="removeItem(${item.id})">Eliminar</button>
+        <button class="btn btn-primary" onclick="increaseQty(${item.id})">+</button>
+        <button class="btn btn-primary" onclick="decreaseQty(${item.id})">-</button>
       </td>
     `;
     cartBody.appendChild(row);
@@ -93,9 +98,9 @@ function renderCart() {
   totalEl.textContent = total.toFixed(2);
 }
 
-// ----------------------------
-// Funciones para manipular el carrito
-// ----------------------------
+// ------------------------
+// Funciones de manipulación
+// ------------------------
 function removeItem(id) {
   let cart = JSON.parse(sessionStorage.getItem('cart')) || [];
   cart = cart.filter(item => item.id !== id);
@@ -122,14 +127,29 @@ function decreaseQty(id) {
   renderCart();
 }
 
-document.getElementById('clear-cart').addEventListener('click', () => {
+function clearCart() {
   sessionStorage.removeItem('cart');
   renderCart();
-});
+}
 
-// ----------------------------
+function checkout() {
+  alert("Redirigiendo a la página de pago...");
+  // Aquí puedes redirigir a /checkout.html por ejemplo
+  // window.location.href = "/checkout.html";
+}
+
+// ------------------------
+// Modal
+// ------------------------
+function openCart() { 
+  document.getElementById('cartModal').style.display = 'block'; 
+  renderCart();
+}
+function closeCart() { document.getElementById('cartModal').style.display = 'none'; }
+
+// ------------------------
 // Render inicial
-// ----------------------------
+// ------------------------
 renderCart();
 </script>
 
