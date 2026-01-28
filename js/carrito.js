@@ -176,8 +176,6 @@
     return (hash >>> 0).toString(36);
     }
 
-    console.log(hashFNV1a(carrito)); // ejemplo: "k5r7q8"
-
   // Render inicial
   renderCart();
 })();
