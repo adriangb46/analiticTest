@@ -162,7 +162,7 @@
     cart.push(item);
     }
     setCart(cart);
-    console.log(hashDelCarrito(cart));
+    console.log(cartHasher(cart));
     renderCart();
     }
 
