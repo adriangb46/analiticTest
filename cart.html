@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carrito de Compras</title>
+<style>
+  body { font-family: Arial, sans-serif; margin: 20px; }
+  table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+  th, td { padding: 10px; border: 1px solid #ccc; text-align: left; }
+  th { background-color: #f2f2f2; }
+  button { padding: 5px 10px; margin: 2px; }
+  #empty-cart { color: red; font-weight: bold; }
+</style>
+</head>
+<body>
+
+<h1>Carrito de Compras</h1>
+
+<table id="cart-table">
+  <thead>
+    <tr>
+      <th>Producto</th>
+      <th>Precio</th>
+      <th>Cantidad</th>
+      <th>Subtotal</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody id="cart-body">
+    <!-- Los productos se insertarán aquí -->
+  </tbody>
+</table>
+
+<div id="empty-cart" style="display:none;">El carrito está vacío.</div>
+<p><strong>Total: $<span id="total">0.00</span></strong></p>
+
+<button id="clear-cart">Vaciar Carrito</button>
+
+<script>
+// ----------------------------
+// Datos de ejemplo (para probar)
+// ----------------------------
+if (!sessionStorage.getItem('cart')) {
+  const sampleCart = [
+    { id: 1, name: 'Camiseta', price: 19.99, quantity: 2 },
+    { id: 2, name: 'Pantalón', price: 39.99, quantity: 1 },
+    { id: 3, name: 'Zapatos', price: 59.99, quantity: 1 }
+  ];
+  sessionStorage.setItem('cart', JSON.stringify(sampleCart));
+}
+
+// ----------------------------
+// Función para renderizar el carrito
+// ----------------------------
+function renderCart() {
+  const cart = JSON.parse(sessionStorage.getItem('cart')) || [];
+  const cartBody = document.getElementById('cart-body');
+  const totalEl = document.getElementById('total');
+  const emptyCartEl = document.getElementById('empty-cart');
+
+  cartBody.innerHTML = '';
+  let total = 0;
+
+  if (cart.length === 0) {
+    emptyCartEl.style.display = 'block';
+    totalEl.textContent = '0.00';
+    return;
+  } else {
+    emptyCartEl.style.display = 'none';
+  }
+
+  cart.forEach(item => {
+    const subtotal = item.price * item.quantity;
+    total += subtotal;
+
+    const row = document.createElement('tr');
+
+    row.innerHTML = `
+      <td>${item.name}</td>
+      <td>$${item.price.toFixed(2)}</td>
+      <td>${item.quantity}</td>
+      <td>$${subtotal.toFixed(2)}</td>
+      <td>
+        <button onclick="removeItem(${item.id})">Eliminar</button>
+        <button onclick="increaseQty(${item.id})">+</button>
+        <button onclick="decreaseQty(${item.id})">-</button>
+      </td>
+    `;
+    cartBody.appendChild(row);
+  });
+
+  totalEl.textContent = total.toFixed(2);
+}
+
+// ----------------------------
+// Funciones para manipular el carrito
+// ----------------------------
+function removeItem(id) {
+  let cart = JSON.parse(sessionStorage.getItem('cart')) || [];
+  cart = cart.filter(item => item.id !== id);
+  sessionStorage.setItem('cart', JSON.stringify(cart));
+  renderCart();
+}
+
+function increaseQty(id) {
+  let cart = JSON.parse(sessionStorage.getItem('cart')) || [];
+  cart = cart.map(item => item.id === id ? {...item, quantity: item.quantity + 1} : item);
+  sessionStorage.setItem('cart', JSON.stringify(cart));
+  renderCart();
+}
+
+function decreaseQty(id) {
+  let cart = JSON.parse(sessionStorage.getItem('cart')) || [];
+  cart = cart.map(item => {
+    if (item.id === id) {
+      return {...item, quantity: Math.max(item.quantity - 1, 1)};
+    }
+    return item;
+  });
+  sessionStorage.setItem('cart', JSON.stringify(cart));
+  renderCart();
+}
+
+document.getElementById('clear-cart').addEventListener('click', () => {
+  sessionStorage.removeItem('cart');
+  renderCart();
+});
+
+// ----------------------------
+// Render inicial
+// ----------------------------
+renderCart();
+</script>
+
+</body>
+</html>
