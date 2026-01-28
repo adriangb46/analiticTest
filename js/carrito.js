@@ -94,14 +94,14 @@
   }
 
   function increaseQty(id) {
-    const cart = getCart().map(item => item.id === id ? {...item, quantity: item.quantity + 1} : item);
+    const cart = getCart().map(item => item.id === id ? {...item, quantity: parseInt(item.quantity) + 1} : item);
     setCart(cart);
     renderCart();
   }
 
   function decreaseQty(id) {
     const cart = getCart().map(item => {
-      if (item.id === id) return {...item, quantity: Math.max(item.quantity - 1, 1)};
+      if (item.id === id) return {...item, quantity: Math.max(parseInt(item.quantity) - 1, 1)};
       return item;
     });
     setCart(cart);
@@ -109,7 +109,7 @@
   }
 
   function clearCart() {
-    sessionStorage.removeItem('cart');
+    sessionStorage.setItem("cart",[]);
     renderCart();
   }
 
