@@ -94,14 +94,14 @@
   }
 
   function increaseQty(id) {
-    const cart = getCart().map(item => item.id === id ? {...item, quantity: parseInt(item.quantity) + 1} : item);
+    const cart = getCart().map(item => item.id == id ? {...item, quantity: (parseInt(item.quantity) + 1)} : item);
     setCart(cart);
     renderCart();
   }
 
   function decreaseQty(id) {
     const cart = getCart().map(item => {
-      if (item.id === id) return {...item, quantity: Math.max(parseInt(item.quantity) - 1, 1)};
+      if (item.id == id) return {...item, quantity: Math.max(parseInt(item.quantity) - 1, 1)};
       return item;
     });
     setCart(cart);
@@ -152,7 +152,7 @@
     window.addItem = function addItemToCart(item) {
         if(!item.quantity){
             console.log("por lo menos llegue aqui");
-            item.quantity = 0;
+            item.quantity = 1;
         }
         console.log(item.id);
         const cart = getCart();
