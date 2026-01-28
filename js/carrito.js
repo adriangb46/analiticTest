@@ -121,7 +121,7 @@
   function checkout() {
     alert("Redirigiendo a la página de pago...");
     localStorage.setItem("lastBuyCart",cartHasher(getCart()));
-    
+    clearCart();
     // window.location.href = "/checkout.html";
   }
 
