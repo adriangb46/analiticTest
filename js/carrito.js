@@ -86,18 +86,6 @@
     totalEl.textContent = total.toFixed(2);
   }
 
-  export function addItem(item) {
-    const cart = getCart();
-    const exists = cart.find(p => p.id === item.id);
-    if (exists) {
-      exists.quantity += item.quantity;
-    } else {
-      cart.push(item);
-    }
-    setCart(cart);
-    renderCart();
-  }
-
   function removeItem(id) {
     let cart = getCart();
     cart = cart.filter(item => item.id !== id);
