@@ -1,6 +1,4 @@
 // Product.js - Product Detail Page
-
-import {addItem} from "js/carrito.js";
 document.addEventListener('DOMContentLoaded', async function() {
     // Get product ID from URL
     const urlParams = new URLSearchParams(window.location.search);
