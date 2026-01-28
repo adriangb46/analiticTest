@@ -145,26 +145,24 @@
 
   // 5️⃣ Inicializar carrito de ejemplo si no existe
   if (!sessionStorage.getItem('cart')) {
-    const sampleCart = [
-      { id: 1, name: 'Camiseta', price: 19.99, quantity: 2 },
-      { id: 2, name: 'Pantalón', price: 39.99, quantity: 1 },
-      { id: 3, name: 'Zapatos', price: 59.99, quantity: 1 }
-    ];
+    const sampleCart = [];
     setCart(sampleCart);
   }
 
-  window.addItem = function addItemToCart(item) {
-    console.log(item.id);
-    const cart = getCart();
-    const exists = cart.find(p => p.id === item.id);
-    if (exists) {
-    exists.quantity += item.quantity;
-    } else {
-    cart.push(item);
-    }
-    setCart(cart);
-    console.log(cartHasher(cart));
-    renderCart();
+    window.addItem = function addItemToCart(item) {
+        console.log(item.id);
+        const cart = getCart();
+        const exists = cart.find(p => p.id == item.id);
+        if (exists) {
+            if(exists.quantity == 0) exists.quantity = 0;
+            console.log("Vamos por buen lugar");
+            exists.quantity += item.quantity;
+        } else {
+            cart.push(item);
+        }
+        setCart(cart);
+        console.log(cartHasher(cart));
+        renderCart();
     }
 
     window.cartHasher = function hashDelCarrito(obj) {
