@@ -165,11 +165,7 @@
     setCart(sampleCart);
   }
 
-  // Render inicial
-  renderCart();
-})();
-
-function addItemToCart(item) {
+  function addItemToCart(item) {
     const cart = getCart();
     const exists = cart.find(p => p.id === item.id);
     if (exists) {
@@ -180,16 +176,22 @@ function addItemToCart(item) {
     setCart(cart);
     getHashToAnalitics();
     renderCart();
-}
+    }
 
-function hashDelCarrito(obj) {
-const str = JSON.stringify(obj) + Date.now();
-let hash = 2166136261;
-for (let i = 0; i < str.length; i++) {
-    hash ^= str.charCodeAt(i);
-    hash = Math.imul(hash, 16777619);
-}
-return (hash >>> 0).toString(36);
-}
+    function hashDelCarrito(obj) {
+    const str = JSON.stringify(obj) + Date.now();
+    let hash = 2166136261;
+    for (let i = 0; i < str.length; i++) {
+        hash ^= str.charCodeAt(i);
+        hash = Math.imul(hash, 16777619);
+    }
+    return (hash >>> 0).toString(36);
+    }
 
-console.log(hashFNV1a(carrito)); // ejemplo: "k5r7q8"
+    console.log(hashFNV1a(carrito)); // ejemplo: "k5r7q8"
+
+  // Render inicial
+  renderCart();
+})();
+
+
