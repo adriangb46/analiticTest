@@ -100,7 +100,7 @@ function handlePurchase(product) {
     s.tl(this, 'o', "producto Comprado")
 */
     // Show success message
-    addItemToCart({
+    window.addItem({
         name:product.name,
         price:product.price,
         category:product.category
