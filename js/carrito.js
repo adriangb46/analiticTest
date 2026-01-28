@@ -88,7 +88,7 @@
 
   function removeItem(id) {
     let cart = getCart();
-    cart = cart.filter(item => item.id !== id);
+    cart = cart.filter(item => item.id != id);
     setCart(cart);
     renderCart();
   }
@@ -109,7 +109,7 @@
   }
 
   function clearCart() {
-    sessionStorage.setItem("cart",[]);
+    setCart([]);
     renderCart();
   }
 
