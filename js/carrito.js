@@ -159,7 +159,7 @@
         const exists = cart.find(p => p.id == item.id);
         if (exists) {
             console.log("Vamos por buen lugar");
-            exists.quantity =  parseInt(exists.quantity) += 1;
+            exists.quantity =  parseInt(exists.quantity) + 1;
         } else {
             cart.push(item);
         }
