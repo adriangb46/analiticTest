@@ -154,6 +154,7 @@
   }
 
   window.addItem = function addItemToCart(item) {
+    console.log(item.id);
     const cart = getCart();
     const exists = cart.find(p => p.id === item.id);
     if (exists) {
