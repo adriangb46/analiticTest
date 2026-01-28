@@ -173,9 +173,9 @@
             hash ^= str.charCodeAt(i);
             hash = Math.imul(hash, 16777619);
         }
-        var hash = (hash >>> 0).toString(36);
-        console.log("hash");
-        return hash;
+        var hashres = (hash >>> 0).toString(36);
+        console.log(hashres);
+        return hashres;
     }
 
   // Render inicial
