@@ -150,11 +150,13 @@
   }
 
     window.addItem = function addItemToCart(item) {
+        if(item.quantity){
+            item.quantity = 0;
+        }
         console.log(item.id);
         const cart = getCart();
         const exists = cart.find(p => p.id == item.id);
         if (exists) {
-            if(exists.quantity == 0) exists.quantity = 0;
             console.log("Vamos por buen lugar");
             exists.quantity += item.quantity;
         } else {
