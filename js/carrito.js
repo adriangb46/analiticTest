@@ -151,7 +151,7 @@
 
     window.addItem = function addItemToCart(item) {
         if(item.quantity){
-            item.quantity = 0;
+            item['quantity'] = 0;
         }
         console.log(item.id);
         const cart = getCart();
